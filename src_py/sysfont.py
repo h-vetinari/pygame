@@ -33,6 +33,8 @@ OpenType_extensions = frozenset((".ttf", ".ttc", ".otf"))
 Sysfonts = {}
 Sysalias = {}
 
+is_init = False
+
 if os.name == "nt":
     import winreg as _winreg
 
@@ -320,7 +322,12 @@ def initsysfonts():
 
     Has different initialisation functions for different platforms.
     """
-    if sys.platform == 'win32':
+    global is_init
+    if is_init:
+        # no need to re-init
+        return
+
+    if sys.platform == "win32":
         fonts = initsysfonts_win32()
     elif sys.platform == 'darwin':
         fonts = initsysfonts_darwin()
@@ -328,8 +335,7 @@ def initsysfonts():
         fonts = initsysfonts_unix()
     Sysfonts.update(fonts)
     create_aliases()
-    if not Sysfonts:  # dummy so we don't try to reinit
-        Sysfonts[None] = None
+    is_init = True
 
 
 def font_constructor(fontpath, size, bold, italic):
@@ -381,8 +387,7 @@ def SysFont(name, size, bold=False, italic=False, constructor=None):
     if constructor is None:
         constructor = font_constructor
 
-    if not Sysfonts:
-        initsysfonts()
+    initsysfonts()
 
     gotbold = gotitalic = False
     fontname = None
@@ -438,11 +443,8 @@ def get_fonts():
        removed. This is how pygame internally stores the font
        names for matching.
     """
-    if not Sysfonts:
-        initsysfonts()
-
-    # 'Sysfonts' can contain a sentinel 'None' key, don't forward that to users
-    return [i for i in Sysfonts if i is not None]
+    initsysfonts()
+    return list(Sysfonts)
 
 
 def match_font(name, bold=0, italic=0):
@@ -457,8 +459,7 @@ def match_font(name, bold=0, italic=0):
 
        If no match is found, None is returned.
     """
-    if not Sysfonts:
-        initsysfonts()
+    initsysfonts()
 
     fontname = None
     if isinstance(name, (str, bytes, unicode_)):
