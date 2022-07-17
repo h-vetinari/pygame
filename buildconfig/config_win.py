@@ -30,9 +30,10 @@ def get_machine_type():
     return as_machine_type(get_ptr_size())
 
 class Dependency(object):
-    huntpaths = ['..', '..\\..', '..\\*', '..\\..\\*']
-    inc_hunt = ['include']
-    lib_hunt = ['VisualC\\SDL\\Release', 'VisualC\\Release', 'Release', 'lib']
+    huntpaths = [os.environ['LIBRARY_PREFIX'], os.environ['LIBRARY_LIB'],
+                 os.environ['LIBRARY_INC']]
+    inc_hunt = ['include', 'include\\SDL2']
+    lib_hunt = ['lib', 'bin']
     check_hunt_roots = True
     def __init__(self, name, wildcards, libs=None, required=0, find_header='', find_lib=''):
         if libs is None:
@@ -473,10 +474,11 @@ def setup_prebuilt_sdl2(prebuilt_dir):
 
 def main():
     machine_type = get_machine_type()
-    prebuilt_dir = 'prebuilt-%s' % machine_type
-    use_prebuilt = '-prebuilt' in sys.argv
+    # avoid triggering unwanted branches below
+    prebuilt_dir = ''
+    use_prebuilt = False
 
-    auto_download = 'PYGAME_DOWNLOAD_PREBUILT' in os.environ
+    auto_download = False
     if auto_download:
         auto_download = os.environ['PYGAME_DOWNLOAD_PREBUILT'] == '1'
 
