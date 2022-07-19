@@ -612,8 +612,8 @@ if sys.platform == 'win32' and not 'WIN32_DO_NOT_INCLUDE_DEPS' in os.environ:
         f = the_dlls[lib].replace('/', os.sep)
         if f == '_':
             print ("WARNING, DLL for %s library not found." % lib)
-        else:
-            pygame_data_files.append(f)
+        # else:
+        #     pygame_data_files.append(f)
 
 
     if '-enable-msvc-analyze' in sys.argv:
