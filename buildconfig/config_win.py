@@ -495,12 +495,7 @@ def main():
     }
     download_kwargs[machine_type] = True
 
-    if not auto_download:
-        if (not download_win_prebuilt.cached(**download_kwargs) or\
-            not os.path.isdir(prebuilt_dir))\
-            and download_win_prebuilt.ask(**download_kwargs):
-            use_prebuilt = True
-    else:
+    if auto_download:
         download_win_prebuilt.update(**download_kwargs)
 
     if os.path.isdir(prebuilt_dir):
