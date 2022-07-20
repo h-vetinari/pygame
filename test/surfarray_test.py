@@ -134,7 +134,10 @@ class SurfarrayModuleTest(unittest.TestCase):
         return zeros(self.surf_size, dtype)
 
     def test_array2d(self):
+        """
+        |Tags:display|
 
+        """
         sources = [
             self._make_src_surface(8),
             self._make_src_surface(16),
@@ -204,7 +207,10 @@ class SurfarrayModuleTest(unittest.TestCase):
                 )
 
     def test_array_alpha(self):
+        """
+        |Tags:display|
 
+        """
         palette = [
             (0, 0, 0, 0),
             (10, 50, 100, 255),
@@ -271,7 +277,10 @@ class SurfarrayModuleTest(unittest.TestCase):
             surf.set_alpha(blanket_alpha)
 
     def test_array_colorkey(self):
+        """
+        |Tags:display|
 
+        """
         palette = [
             (0, 0, 0, 0),
             (10, 50, 100, 255),
@@ -352,7 +361,10 @@ class SurfarrayModuleTest(unittest.TestCase):
                 del arr
 
     def test_blit_array(self):
+        """
+        |Tags:display|
 
+        """
         s = pygame.Surface((10, 10), 0, 24)
         a = pygame.surfarray.array3d(s)
         pygame.surfarray.blit_array(s, a)
@@ -553,7 +565,10 @@ class SurfarrayModuleTest(unittest.TestCase):
                         )
 
     def test_map_array(self):
+        """
+        |Tags:display|
 
+        """
         arr3d = self._make_src_array3d(uint8)
         targets = [
             self._make_surface(8),
@@ -589,7 +604,10 @@ class SurfarrayModuleTest(unittest.TestCase):
         )
 
     def test_pixels2d(self):
+        """
+        |Tags:display|
 
+        """
         sources = [
             self._make_surface(8),
             self._make_surface(16, srcalpha=True),
@@ -612,7 +630,10 @@ class SurfarrayModuleTest(unittest.TestCase):
         self.assertRaises(ValueError, pygame.surfarray.pixels2d, self._make_surface(24))
 
     def test_pixels3d(self):
+        """
+        |Tags:display|
 
+        """
         sources = [self._make_surface(24), self._make_surface(32)]
 
         for surf in sources:
@@ -642,7 +663,10 @@ class SurfarrayModuleTest(unittest.TestCase):
         self.assertRaises(ValueError, do_pixels3d, self._make_surface(16))
 
     def test_pixels_alpha(self):
+        """
+        |Tags:display|
 
+        """
         palette = [
             (0, 0, 0, 0),
             (127, 127, 127, 0),
@@ -685,12 +709,24 @@ class SurfarrayModuleTest(unittest.TestCase):
             )
 
     def test_pixels_red(self):
+        """
+        |Tags:display|
+
+        """
         self._test_pixels_rgb("red", 0)
 
     def test_pixels_green(self):
+        """
+        |Tags:display|
+
+        """
         self._test_pixels_rgb("green", 1)
 
     def test_pixels_blue(self):
+        """
+        |Tags:display|
+
+        """
         self._test_pixels_rgb("blue", 2)
 
     def _test_pixels_rgb(self, operation, mask_posn):

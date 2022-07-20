@@ -189,6 +189,10 @@ class FontModuleTest(unittest.TestCase):
         surf.blit(image, (0,0))
 
     def test_issue_font_alphablit(self):
+        """
+        |Tags:display|
+
+        """
         """ Check that blitting anti-aliased text doesn't
             change the background blue"""
         pygame.display.set_mode((600, 400))
@@ -229,6 +233,10 @@ class FontTest(unittest.TestCase):
         pygame_font.quit()
 
     def test_render_args(self):
+        """
+        |Tags:display|
+
+        """
         screen = pygame.display.set_mode((600, 400))
         rect = screen.get_rect()
         f = pygame_font.Font(None, 20)

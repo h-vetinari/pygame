@@ -761,8 +761,9 @@ class TransformModuleTest(unittest.TestCase):
 
     def test_laplacian(self):
         """
-        """
+        |Tags:display|
 
+        """
         SIZE = 32
         s1 = pygame.Surface((SIZE, SIZE))
         s2 = pygame.Surface((SIZE, SIZE))
@@ -792,6 +793,8 @@ class TransformModuleTest(unittest.TestCase):
 
     def test_laplacian__24_big_endian(self):
         """
+        |Tags:display|
+
         """
         pygame.display.init()
         try:
@@ -883,6 +886,10 @@ class TransformModuleTest(unittest.TestCase):
         self.assertEqual(sr.get_at((0, 0)), (10, 53, 50, 255))
 
     def test_average_surfaces__24_big_endian(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             surf_1 = pygame.image.load(
@@ -1251,6 +1258,10 @@ class TransformDisplayModuleTest(unittest.TestCase):
         pygame.display.quit()
 
     def test_flip(self):
+        """
+        |Tags:display|
+
+        """
         """ honors the set_color key on the returned surface from flip.
         """
         image_loaded = pygame.image.load(example_path("data/chimp.png"))
@@ -1296,6 +1307,10 @@ class TransformDisplayModuleTest(unittest.TestCase):
         self.assertEqual(surf.get_at((0, 0)), surf2.get_at((0, 0)))
 
     def test_flip_alpha(self):
+        """
+        |Tags:display|
+
+        """
         """ returns a surface with the same properties as the input.
         """
         image_loaded = pygame.image.load(example_path("data/chimp.png"))

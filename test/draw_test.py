@@ -1509,6 +1509,10 @@ class LineMixin(BaseLineMixin):
                 bounds_rect = self.draw_line(**kwargs)
 
     def test_line__color(self):
+        """
+        |Tags:display|
+
+        """
         """Tests if the line drawn is the correct color."""
         pos = (0, 0)
         for surface in self._create_surfaces():
@@ -1520,6 +1524,10 @@ class LineMixin(BaseLineMixin):
                 )
 
     def test_line__color_with_thickness(self):
+        """
+        |Tags:display|
+
+        """
         """Ensures a thick line is drawn using the correct color."""
         from_x = 5
         to_x = 10
@@ -1536,6 +1544,10 @@ class LineMixin(BaseLineMixin):
                     )
 
     def test_line__gaps(self):
+        """
+        |Tags:display|
+
+        """
         """Tests if the line drawn contains any gaps."""
         expected_color = (255, 255, 255)
         for surface in self._create_surfaces():
@@ -1549,6 +1561,10 @@ class LineMixin(BaseLineMixin):
                 )
 
     def test_line__gaps_with_thickness(self):
+        """
+        |Tags:display|
+
+        """
         """Ensures a thick line is drawn without any gaps."""
         expected_color = (255, 255, 255)
         thickness = 5
@@ -2219,8 +2235,11 @@ class LinesMixin(BaseLineMixin):
                 bounds_rect = self.draw_lines(**kwargs)
 
     def test_lines__color(self):
-        """Tests if the lines drawn are the correct color.
+        """
+        |Tags:display|
 
+        """
+        """Tests if the lines drawn are the correct color.
         Draws lines around the border of the given surface and checks if all
         borders of the surface only contain the given color.
         """
@@ -2232,6 +2251,10 @@ class LinesMixin(BaseLineMixin):
                     self.assertEqual(color, expected_color, "pos={}".format(pos))
 
     def test_lines__color_with_thickness(self):
+        """
+        |Tags:display|
+
+        """
         """Ensures thick lines are drawn using the correct color."""
         x_left = y_top = 5
         for surface in self._create_surfaces():
@@ -2259,8 +2282,11 @@ class LinesMixin(BaseLineMixin):
                             )
 
     def test_lines__gaps(self):
-        """Tests if the lines drawn contain any gaps.
+        """
+        |Tags:display|
 
+        """
+        """Tests if the lines drawn contain any gaps.
         Draws lines around the border of the given surface and checks if
         all borders of the surface contain any gaps.
         """
@@ -2272,6 +2298,10 @@ class LinesMixin(BaseLineMixin):
                 self.assertEqual(color, expected_color, "pos={}".format(pos))
 
     def test_lines__gaps_with_thickness(self):
+        """
+        |Tags:display|
+
+        """
         """Ensures thick lines are drawn without any gaps."""
         expected_color = (255, 255, 255)
         x_left = y_top = 5
@@ -2848,6 +2878,10 @@ class AALineMixin(BaseLineMixin):
                 bounds_rect = self.draw_aaline(**kwargs)
 
     def test_aaline__color(self):
+        """
+        |Tags:display|
+
+        """
         """Tests if the aaline drawn is the correct color."""
         pos = (0, 0)
         for surface in self._create_surfaces():
@@ -2859,6 +2893,10 @@ class AALineMixin(BaseLineMixin):
                 )
 
     def test_aaline__gaps(self):
+        """
+        |Tags:display|
+
+        """
         """Tests if the aaline drawn contains any gaps.
 
         See: #512
@@ -3659,8 +3697,11 @@ class AALinesMixin(BaseLineMixin):
                 bounds_rect = self.draw_aalines(**kwargs)
 
     def test_aalines__color(self):
-        """Tests if the aalines drawn are the correct color.
+        """
+        |Tags:display|
 
+        """
+        """Tests if the aalines drawn are the correct color.
         Draws aalines around the border of the given surface and checks if all
         borders of the surface only contain the given color.
         """
@@ -3672,8 +3713,11 @@ class AALinesMixin(BaseLineMixin):
                     self.assertEqual(color, expected_color, "pos={}".format(pos))
 
     def test_aalines__gaps(self):
-        """Tests if the aalines drawn contain any gaps.
+        """
+        |Tags:display|
 
+        """
+        """Tests if the aalines drawn contain any gaps.
         Draws aalines around the border of the given surface and checks if
         all borders of the surface contain any gaps.
 

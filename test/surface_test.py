@@ -105,6 +105,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
         self.assertEqual(r, (0, 0, 255, 255))
 
     def test_set_at__big_endian(self):
+        """
+        |Tags:display|
+
+        """
         """ png files are loaded in big endian format (BGR rather than RGB)"""
         pygame.display.init()
         try:
@@ -141,6 +145,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
             self.assertEqual(surf2.get_flags() & SRCALPHA, SRCALPHA)
 
     def test_flags_default0_nodisplay(self):
+        """
+        |Tags:display|
+
+        """
         """ is set to zero, and SRCALPH is not set by default with no display initialized.
         """
         pygame.display.quit()
@@ -148,6 +156,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
         self.assertEqual(surf.get_flags() & SRCALPHA, 0)
 
     def test_flags_default0_display(self):
+        """
+        |Tags:display|
+
+        """
         """ is set to zero, and SRCALPH is not set by default even when the display is initialized.
         """
         pygame.display.set_mode((320, 200))
@@ -173,6 +185,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
         self.assertRaises(ValueError, make_surf, 32, 0, masks)
 
     def test_get_bounding_rect(self):
+        """
+        |Tags:display|
+
+        """
         surf = pygame.Surface((70, 70), SRCALPHA, 32)
         surf.fill((0, 0, 0, 0))
         bound_rect = surf.get_bounding_rect()
@@ -331,6 +347,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
         self.assertTrue(not s2.get_flags() & pygame.RLEACCELOK)
 
     def test_solarwolf_rle_usage(self):
+        """
+        |Tags:display|
+
+        """
         """ Test for error/crash when calling set_colorkey() followed
             by convert twice in succession. Code originally taken
             from solarwolf. """
@@ -359,6 +379,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_solarwolf_rle_usage_2(self):
+        """
+        |Tags:display|
+
+        """
         """ Test for RLE status after setting alpha """
 
         pygame.display.init()
@@ -429,6 +453,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_set_alpha__set_colorkey_rle(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             pygame.display.set_mode((640, 480))
@@ -513,6 +541,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
     ########################################################################
 
     def test_get_bytesize(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure a surface's bit and byte sizes can be retrieved."""
         pygame.display.init()
         try:
@@ -557,6 +589,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
         'requires a non-"dummy" SDL_VIDEODRIVER',
     )
     def test_get_flags__display_surf(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             # FULLSCREEN
@@ -602,6 +638,10 @@ class SurfaceTypeTest(AssertRaisesRegexMixin, unittest.TestCase):
     ########################################################################
 
     def test_get_parent(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure a surface's parent can be retrieved."""
         pygame.display.init()
         try:
@@ -1112,6 +1152,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
         'requires a non-"dummy" SDL_VIDEODRIVER',
     )
     def test_image_convert_bug_131(self):
+        """
+        |Tags:display|
+
+        """
         # Bitbucket bug #131: Unable to Surface.convert(32) some 1-bit images.
         # https://bitbucket.org/pygame/pygame/issue/131/unable-to-surfaceconvert-32-some-1-bit
 
@@ -1137,6 +1181,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_convert_init(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure initialization exceptions are raised
         for surf.convert()."""
         pygame.display.quit()
@@ -1164,6 +1212,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_convert_alpha_init(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure initialization exceptions are raised
         for surf.convert_alpha()."""
         pygame.display.quit()
@@ -1184,6 +1236,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_convert_alpha_SRCALPHA(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure that the surface returned by surf.convert_alpha()
         has alpha blending enabled"""
         pygame.display.init()
@@ -1756,6 +1812,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
         self.fail()
 
     def test_convert__pixel_format_as_surface_subclass(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure convert accepts a Surface subclass argument."""
         expected_size = (23, 17)
         convert_surface = SurfaceSubclass(expected_size, 0, 32)
@@ -1774,6 +1834,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_convert_alpha(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure the surface returned by surf.convert_alpha
         has alpha values added"""
         pygame.display.init()
@@ -1826,6 +1890,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_convert_alpha__pixel_format_as_surface_subclass(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure convert_alpha accepts a Surface subclass argument."""
         expected_size = (23, 17)
         convert_surface = SurfaceSubclass(expected_size, SRCALPHA, 32)
@@ -1848,6 +1916,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_get_abs_offset(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             parent = pygame.Surface((64, 64), SRCALPHA, 32)
@@ -1880,6 +1952,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_get_abs_parent(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             parent = pygame.Surface((32, 32), SRCALPHA, 32)
@@ -1949,6 +2025,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             )
 
     def test_get_bitsize(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             expected_size = (11, 21)
@@ -1995,6 +2075,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
         self.assertEqual(rectangle, (0, 0, 800, 600))
 
     def test_get_colorkey(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             # if set_colorkey is not used
@@ -2143,6 +2227,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
         self.assertEqual(surface.get_locks(), ())
 
     def test_get_losses(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure a surface's losses can be retrieved"""
         pygame.display.init()
         try:
@@ -2234,6 +2322,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             surface.get_masks()
 
     def test_get_offset(self):
+        """
+        |Tags:display|
+
+        """
         """get_offset returns the (0,0) if surface is not a child
         returns the position of child subsurface inside of parent
         """
@@ -2254,6 +2346,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_get_palette(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             palette = [Color(i, i, i) for i in range(256)]
@@ -2272,6 +2368,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
             pygame.display.quit()
 
     def test_get_palette_at(self):
+        """
+        |Tags:display|
+
+        """
         # See also test_get_palette
         pygame.display.init()
         try:
@@ -2488,6 +2588,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
         self.assertEqual(surf.get_at((0, 0)), key)
 
     def test_set_palette(self):
+        """
+        |Tags:display|
+
+        """
         palette = [pygame.Color(i, i, i) for i in range(256)]
         palette[10] = tuple(palette[10])  # 4 element tuple
         palette[11] = tuple(palette[11])[0:3]  # 3 element tuple
@@ -2523,6 +2627,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
         pygame.quit()
 
     def test_set_palette_at(self):
+        """
+        |Tags:display|
+
+        """
         pygame.display.init()
         try:
             pygame.display.set_mode((100, 50))
@@ -2618,6 +2726,10 @@ class GeneralSurfaceTests(AssertRaisesRegexMixin, unittest.TestCase):
         self.assertFalse(surf.get_locked())
 
     def test_unmap_rgb(self):
+        """
+        |Tags:display|
+
+        """
         # Special case, 8 bit-per-pixel surface (has a palette).
         surf = pygame.Surface((2, 2), 0, 8)
         c = (1, 1, 1)  # Unlikely to be in a default palette.
@@ -2727,6 +2839,10 @@ class SurfaceSubtypeTest(unittest.TestCase):
         pygame.display.quit()
 
     def test_copy(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure method copy() preserves the surface's class
 
         When Surface is subclassed, the inherited copy() method will return
@@ -2747,6 +2863,10 @@ class SurfaceSubtypeTest(unittest.TestCase):
         self.assertEqual(ms2.get_size(), expected_size)
 
     def test_convert(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure method convert() preserves the surface's class
 
         When Surface is subclassed, the inherited convert() method will return
@@ -2767,6 +2887,10 @@ class SurfaceSubtypeTest(unittest.TestCase):
         self.assertEqual(ms2.get_size(), expected_size)
 
     def test_convert_alpha(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure method convert_alpha() preserves the surface's class
 
         When Surface is subclassed, the inherited convert_alpha() method will
@@ -2789,6 +2913,10 @@ class SurfaceSubtypeTest(unittest.TestCase):
         self.assertEqual(ms2.get_size(), expected_size)
 
     def test_subsurface(self):
+        """
+        |Tags:display|
+
+        """
         """Ensure method subsurface() preserves the surface's class
 
         When Surface is subclassed, the inherited subsurface() method will
@@ -3363,6 +3491,10 @@ class SurfaceBlendTest(unittest.TestCase):
             )
 
     def test_blit_blend(self):
+        """
+        |Tags:display|
+
+        """
         sources = [
             self._make_src_surface(8),
             self._make_src_surface(16),
@@ -3452,6 +3584,10 @@ class SurfaceBlendTest(unittest.TestCase):
             self._assert_surface(dst, p, ", %s" % blend_name)
 
     def test_blit_blend_rgba(self):
+        """
+        |Tags:display|
+
+        """
         sources = [
             self._make_src_surface(8),
             self._make_src_surface(16),
@@ -3539,6 +3675,10 @@ class SurfaceBlendTest(unittest.TestCase):
                 )
 
     def test_blit_blend_premultiplied(self):
+        """
+        |Tags:display|
+
+        """
         def test_premul_surf(
             src_col,
             dst_col,
@@ -3819,6 +3959,10 @@ class SurfaceBlendTest(unittest.TestCase):
         )
 
     def test_blit_blend_big_rect(self):
+        """
+        |Tags:display|
+
+        """
         """test that an oversized rect works ok."""
         color = (1, 2, 3, 255)
         area = (1, 1, 30, 30)
@@ -3848,6 +3992,10 @@ class SurfaceBlendTest(unittest.TestCase):
         self.assertEqual(surf.get_at((0, 9)), black)
 
     def test_GET_PIXELVALS(self):
+        """
+        |Tags:display|
+
+        """
         # surface.h GET_PIXELVALS bug regarding whether of not
         # a surface has per-pixel alpha. Looking at the Amask
         # is not enough. The surface's SRCALPHA flag must also
@@ -3860,6 +4008,10 @@ class SurfaceBlendTest(unittest.TestCase):
         self.assertEqual(dst.get_at((0, 0)), (0, 0, 0, 255))
 
     def test_fill_blend(self):
+        """
+        |Tags:display|
+
+        """
         destinations = [
             self._make_surface(8),
             self._make_surface(16),
@@ -3894,6 +4046,10 @@ class SurfaceBlendTest(unittest.TestCase):
                 self._assert_surface(dst, p, ", %s" % blend_name)
 
     def test_fill_blend_rgba(self):
+        """
+        |Tags:display|
+
+        """
         destinations = [
             self._make_surface(8),
             self._make_surface(16),
@@ -3974,6 +4130,10 @@ class SurfaceSelfBlitTest(unittest.TestCase):
                 )
 
     def test_overlap_check(self):
+        """
+        |Tags:display|
+
+        """
         # Ensure overlapping blits are properly detected. There are two
         # places where this is done, within SoftBlitPyGame() in alphablit.c
         # and PySurface_Blit() in surface.c. SoftBlitPyGame should catch the
@@ -4009,6 +4169,10 @@ class SurfaceSelfBlitTest(unittest.TestCase):
     # https://github.com/pygame/pygame/issues/370#issuecomment-364625291
     @unittest.skipIf("ppc64le" in platform.uname(), "known ppc64le issue")
     def test_colorkey(self):
+        """
+        |Tags:display|
+
+        """
         # Check a workaround for an SDL 1.2.13 surface self-blit problem
         # (MotherHamster Bugzilla bug 19).
         pygame.display.set_mode((100, 50))  # Needed for 8bit surface
@@ -4032,6 +4196,10 @@ class SurfaceSelfBlitTest(unittest.TestCase):
     # https://github.com/pygame/pygame/issues/370#issuecomment-364625291
     @unittest.skipIf("ppc64le" in platform.uname(), "known ppc64le issue")
     def test_blanket_alpha(self):
+        """
+        |Tags:display|
+
+        """
         # Check a workaround for an SDL 1.2.13 surface self-blit problem
         # (MotherHamster Bugzilla bug 19).
         pygame.display.set_mode((100, 50))  # Needed for 8bit surface
@@ -4052,6 +4220,10 @@ class SurfaceSelfBlitTest(unittest.TestCase):
             self._assert_same(surf, comp)
 
     def test_pixel_alpha(self):
+        """
+        |Tags:display|
+
+        """
         bitsizes = [16, 32]
         for bitsize in bitsizes:
             surf = self._make_surface(bitsize, srcalpha=True)
@@ -4061,6 +4233,10 @@ class SurfaceSelfBlitTest(unittest.TestCase):
             self._assert_same(surf, comp)
 
     def test_blend(self):
+        """
+        |Tags:display|
+
+        """
         bitsizes = [8, 16, 24, 32]
         blends = ["BLEND_ADD", "BLEND_SUB", "BLEND_MULT", "BLEND_MIN", "BLEND_MAX"]
         for bitsize in bitsizes:
@@ -4074,6 +4250,10 @@ class SurfaceSelfBlitTest(unittest.TestCase):
                 self._assert_same(surf, comp)
 
     def test_blend_rgba(self):
+        """
+        |Tags:display|
+
+        """
         bitsizes = [16, 32]
         blends = [
             "BLEND_RGBA_ADD",
@@ -4093,6 +4273,10 @@ class SurfaceSelfBlitTest(unittest.TestCase):
                 self._assert_same(surf, comp)
 
     def test_subsurface(self):
+        """
+        |Tags:display|
+
+        """
         # Blitting a surface to its subsurface is allowed.
         surf = self._make_surface(32, srcalpha=True)
         comp = surf.copy()
@@ -4111,6 +4295,10 @@ class SurfaceSelfBlitTest(unittest.TestCase):
         self.assertRaises(pygame.error, do_blit, surf, sub)
 
     def test_copy_alpha(self):
+        """
+        |Tags:display|
+
+        """
         """issue 581: alpha of surface copy with SRCALPHA is set to 0."""
         surf = pygame.Surface((16, 16), pygame.SRCALPHA, 32)
         self.assertEqual(surf.get_alpha(), 255)
@@ -4126,6 +4314,10 @@ class SurfaceFillTest(unittest.TestCase):
         pygame.display.quit()
 
     def test_fill(self):
+        """
+        |Tags:display|
+
+        """
         screen = pygame.display.set_mode((640, 480))
 
         # Green and blue test pattern

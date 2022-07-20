@@ -609,6 +609,10 @@ class ImageModuleTest(unittest.TestCase):
         )
 
     def test_frombuffer_8bit(self):
+        """
+        |Tags:display|
+
+        """
         """ test reading pixel data from a bytes buffer"""
         pygame.display.init()
         eight_bit_palette_buffer = bytearray([0, 0, 0, 0,

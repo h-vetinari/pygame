@@ -240,6 +240,10 @@ class TimeModuleTest(unittest.TestCase):
             self.assertAlmostEqual(ticks_diff, time_diff, delta=delta)
 
     def test_set_timer(self):
+        """
+        |Tags:display|
+
+        """
         """Tests time.set_timer()"""
         """
         Tests if a timer will post the correct amount of eventid events in

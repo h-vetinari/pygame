@@ -526,6 +526,10 @@ class BaseModuleTest(unittest.TestCase):
             self.assertTrue(pygame.font.get_init())
 
     def test_quit__and_init(self):
+        """
+        |Tags:display|
+
+        """
         # __doc__ (as of 2008-06-25) for pygame.base.quit:
 
         # pygame.quit(): return None
@@ -595,6 +599,10 @@ class BaseModuleTest(unittest.TestCase):
             self.assertEqual(encstr, pygame.get_error())
 
     def test_init(self):
+        """
+        |Tags:display|
+
+        """
         """Ensures init() works properly."""
         # Make sure nothing initialized.
         self.not_init_assertions()
@@ -616,12 +624,20 @@ class BaseModuleTest(unittest.TestCase):
         self.assertFalse(pygame.get_init())
 
     def test_get_init__after_init(self):
+        """
+        |Tags:display|
+
+        """
         # Test if get_init() gets the init state after pygame.init() called.
         pygame.init()
 
         self.assertTrue(pygame.get_init())
 
     def test_get_init__after_quit(self):
+        """
+        |Tags:display|
+
+        """
         # Test if get_init() gets the init state after pygame.quit() called.
         pygame.init()
         pygame.quit()

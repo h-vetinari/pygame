@@ -1,1 +1,1 @@
-__tags__ = ["SDL1_ignore"]
+__tags__ = ["display", "SDL1_ignore"]
